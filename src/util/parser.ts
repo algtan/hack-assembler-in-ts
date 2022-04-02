@@ -6,10 +6,7 @@ export enum InstructionType {
 
 const symbolRegExp = /^[a-zA-Z_.$;][a-zA-Z0-9_.$;]*$/
 
-export const instructionType = (
-  line: string,
-  lineNum: number
-): InstructionType => {
+export const instructionType = (line: string): InstructionType => {
   try {
     if (line[0] === '@') {
       validateAInstruction(line)

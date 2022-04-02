@@ -26,12 +26,17 @@ describe('translateAInstruction', () => {
       // Arrange
       const { inputArgs, outputType, expectedOutput } = testCase
 
-      // Act
-      const actualResult = translateAInstruction(inputArgs)
+      // Parameter typing tests
+      if (outputType === 'Error') {
+        expect(() => translateAInstruction(inputArgs)).to.throw(Error)
+      } else {
+        // Act
+        const actualResult = translateAInstruction(inputArgs)
 
-      // Assert
-      expect(actualResult).to.be.an(outputType)
-      expect(actualResult).to.equal(expectedOutput)
+        // Assert
+        expect(actualResult).to.be.an(outputType)
+        expect(actualResult).to.equal(expectedOutput)
+      }
     })
   }
 })

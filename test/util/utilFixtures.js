@@ -31,16 +31,14 @@ export const fixture = {
     {
       testDescription:
         'Returns a string with the binary translation of a symbol that is a number',
-      inputArgs: '3',
+      inputArgs: 3,
       outputType: 'string',
       expectedOutput: '0000000000000011'
     },
     {
-      testDescription:
-        'Returns a string with the binary translation of the symbol based on the symbol table',
-      inputArgs: 'R0',
-      outputType: 'string',
-      expectedOutput: '0000000000000000'
+      testDescription: 'Throws an error when the address is greater than 32767',
+      inputArgs: '40000',
+      outputType: 'Error'
     }
   ]
 }
