@@ -23,9 +23,7 @@ export const instructionType = (
     }
   } catch (err) {
     const message: string = err.message ?? 'Invalid Instruction'
-    throw new Error(
-      `Error determining instruction type - ${message} - line ${lineNum}`
-    )
+    throw new Error(message)
   }
 }
 
@@ -62,7 +60,7 @@ export const parseSymbol = (
   } else if (instructionType === InstructionType.L) {
     return line.slice(1, -1)
   } else {
-    throw new Error(`Cannot parse symbol from '${line}'`)
+    throw new Error('Cannot parse symbol')
   }
 }
 
