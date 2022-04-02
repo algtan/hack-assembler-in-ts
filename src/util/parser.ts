@@ -1,10 +1,10 @@
-enum InstructionType {
+export enum InstructionType {
   A = 'A_INSTRUCTION',
   C = 'C_INSTRUCTION',
   L = 'L_INSTRUCTION'
 }
 
-const symbolRegExp = /^[a-zA-Z0-9_.$;]*$/
+const symbolRegExp = /^[a-zA-Z_.$;][a-zA-Z0-9_.$;]*$/
 
 export const instructionType = (
   line: string,
@@ -23,16 +23,14 @@ export const instructionType = (
     }
   } catch (err) {
     const message: string = err.message ?? 'Invalid Instruction'
-    throw new Error(
-      `Error determining instruction type - ${message} - line ${lineNum}`
-    )
+    throw new Error(message)
   }
 }
 
 export const validateAInstruction = (line: string): void => {
   const symbol = line.slice(1)
 
-  if (isNaN(parseInt(symbol)) && !symbolRegExp.test(symbol)) {
+  if (isNaN(Number(symbol)) && !symbolRegExp.test(symbol)) {
     throw new Error('Invalid A Instruction')
   }
 }
@@ -62,7 +60,7 @@ export const parseSymbol = (
   } else if (instructionType === InstructionType.L) {
     return line.slice(1, -1)
   } else {
-    throw new Error(`Cannot parse symbol from '${line}'`)
+    throw new Error('Cannot parse symbol')
   }
 }
 

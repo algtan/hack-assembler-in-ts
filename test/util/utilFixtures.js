@@ -26,5 +26,21 @@ export const fixture = {
       outputType: 'string',
       expectedOutput: '@R0'
     }
+  ],
+  translateAInstruction: [
+    {
+      testDescription:
+        'Returns a string with the binary translation of a symbol that is a number',
+      inputArgs: '3',
+      outputType: 'string',
+      expectedOutput: '0000000000000011'
+    },
+    {
+      testDescription:
+        'Returns a string with the binary translation of the symbol based on the symbol table',
+      inputArgs: 'R0',
+      outputType: 'string',
+      expectedOutput: '0000000000000000'
+    }
   ]
 }
