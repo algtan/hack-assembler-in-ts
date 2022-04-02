@@ -4,7 +4,7 @@ enum InstructionType {
   L = 'L_INSTRUCTION'
 }
 
-const symbolRegExp = /^[a-zA-Z0-9_.$;]*$/
+const symbolRegExp = /^[a-zA-Z_.$;][a-zA-Z0-9_.$;]*$/
 
 export const instructionType = (
   line: string,
@@ -32,7 +32,7 @@ export const instructionType = (
 export const validateAInstruction = (line: string): void => {
   const symbol = line.slice(1)
 
-  if (isNaN(parseInt(symbol)) && !symbolRegExp.test(symbol)) {
+  if (isNaN(Number(symbol)) && !symbolRegExp.test(symbol)) {
     throw new Error('Invalid A Instruction')
   }
 }

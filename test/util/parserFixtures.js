@@ -7,6 +7,12 @@ export const fixture = {
     },
     {
       testDescription:
+        'Throws an Error for an A instruction symbol that starts with a number but contains other characters',
+      inputArgs: '@0aZ1_.$;',
+      outputType: 'Error'
+    },
+    {
+      testDescription:
         'Throws an Error for invalid characters in the A instruction',
       inputArgs: '@!!!',
       outputType: 'Error'
@@ -17,6 +23,12 @@ export const fixture = {
       testDescription: 'Does not throw for an L instruction with valid symbols',
       inputArgs: '(aZ1_.$;)',
       outputType: 'void'
+    },
+    {
+      testDescription:
+        'Throws an Error for an L instruction symbol that starts with a number but contains other characters',
+      inputArgs: '(0aZ1_.$;)',
+      outputType: 'Error'
     },
     {
       testDescription:
