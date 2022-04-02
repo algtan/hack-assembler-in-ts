@@ -4,9 +4,10 @@ export const cleanLine = (line: string): string => {
   return lineArr[0]
 }
 
-export const translateAInstruction = (symbol: string): string => {
-  const addressInt = Number(symbol)
-  const address = addressInt < 32768 ? addressInt : 0 // replace 0 with symbol table result
+export const translateAInstruction = (address: number): string => {
+  if (address > 32767) {
+    throw new Error('Invalid address')
+  }
 
   let binaryString = address.toString(2)
 
