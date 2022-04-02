@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint .",
-    "test": "mocha -r sucrase/register test/**/*.test.js"
+    "test": "tsc && mocha -r sucrase/register test/**/*.test.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint"
