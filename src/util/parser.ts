@@ -1,4 +1,4 @@
-enum InstructionType {
+export enum InstructionType {
   A = 'A_INSTRUCTION',
   C = 'C_INSTRUCTION',
   L = 'L_INSTRUCTION'
